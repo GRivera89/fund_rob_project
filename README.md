@@ -1,2 +1,2 @@
 # fund_rob_project
-Visualization of the robot Techman900 in Ros Noetic
+Visualization of the Techman900 robot in Ros Noetic
