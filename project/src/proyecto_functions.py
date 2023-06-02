@@ -66,7 +66,7 @@ def fkine_tm900(q):
     T = T1 @ T2 @ T3 @ T4 @ T5 @ T6
     return T
 
-def jacobian_kukakr6(q, delta=0.0001):
+def jacobian(q, delta=0.0001):
     """
     Jacobiano analitico para la posicion. Retorna una matriz de 3x6 y toma como
     entrada el vector de configuracion articular q=[q1, q2, q3, q4, q5, q6]
@@ -101,7 +101,7 @@ def ikine_kukakr6(xdes, q0):
     q  = copy(q0)
     for i in range(max_iter):
         # Main loop
-        J = jacobian_kukakr6(q, delta)
+        J = jacobian(q, delta)
         T = fkine_tm900(q)
         f = T[0:3, 3]
         e = xdes - f
@@ -130,7 +130,7 @@ def ik_gradient_kukakr6(xdes, q0):
     q  = copy(q0)
     for i in range(max_iter):
         # Main loop
-        J = jacobian_kukakr6(q, delta)
+        J = jacobian(q, delta)
         T = fkine_tm900(q)
         f = T[0:3, 3]
         e = xdes - f
